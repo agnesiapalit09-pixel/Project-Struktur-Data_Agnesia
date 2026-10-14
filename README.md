@@ -64,7 +64,6 @@ I. Perbandingan Insertion vs Merge
 <img width="1600" height="1000" alt="grafik_waktu_sorting" src="https://github.com/user-attachments/assets/b22a3e34-979a-47d2-891b-811b78e0b670" />
 
 Insertion Sort: memiliki kompleksitas waktu rata-rata dan terburuk sebesar O(n²).
-
 Merge Sort: memiliki kompleksitas waktu rata-rata dan terburuk sebesar O(n log n).
 
 Secara umum, Merge Sort lebih efisien untuk data berukuran besar. Namun, hasil jumlah perbandingan yang sebenarnya tetap bergantung pada implementasi algoritma dan data pengujian.
