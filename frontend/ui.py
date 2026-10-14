@@ -213,7 +213,6 @@ class App(tk.Tk):
         self.queue_circular = self.m2.circular
         self.undo_stack = self.m2.undo_stack
         self.redo_stack = self.m2.redo_stack
-        self.history = self.m2.history
         self.current_action = "Load"
         self._style()
         self._build_layout()
@@ -300,7 +299,6 @@ class App(tk.Tk):
                 ("Queue - Dequeue Circular", "M2 Dequeue Circular"),
                 ("Stack - Undo", "M2 Undo"),
                 ("Stack - Redo Aksi", "M2 Redo"),
-                ("History", "M2 History"),
             ]),
             ("M3 - SORT & SEARCH", [
                 ("Sort - Insertion Sort", "M3 Insertion"),
@@ -489,15 +487,12 @@ class App(tk.Tk):
                 f"Panjang antrean: {len(self.m2.naif):,}. Tekan DEQUEUE untuk mengambil pesanan paling depan.",
                 extra={"metode": "Queue " + mode.title(), "posisi pengambilan": "depan antrean"}
             )
-        elif action in ("M2 Undo", "M2 Redo", "M2 History"):
+        elif action in ("M2 Undo", "M2 Redo"):
             self.description.config(text="Kelola pembatalan aksi, pengulangan aksi, dan riwayat.")
             if action == "M2 Undo":
                 ttk.Button(self.form, text="UNDO AKSI TERAKHIR", command=self.undo).pack(anchor="w")
             elif action == "M2 Redo":
                 ttk.Button(self.form, text="REDO AKSI TERAKHIR", command=self.redo).pack(anchor="w")
-            else:
-                ttk.Button(self.form, text="TAMPILKAN HISTORY & STATS", command=self.show_history).pack(anchor="w")
-                self.show_history()
         elif action in ("M3 Insertion", "M3 Merge"):
             mode = "insertion" if action.endswith("Insertion") else "merge"
             self.description.config(
@@ -778,7 +773,6 @@ class App(tk.Tk):
         self.queue_circular = self.m2.circular
         self.undo_stack = self.m2.undo_stack
         self.redo_stack = self.m2.redo_stack
-        self.history = self.m2.history
         queue_length = len(self.m2.naif)
         self.show_m2_details(
             f"{oid} masuk ke bagian paling belakang pada KEDUA antrean. Panjang sekarang: {queue_length:,}.",
@@ -838,20 +832,6 @@ class App(tk.Tk):
             extra={"aksi": "REDO", "undo depth": len(self.m2.undo_stack), "redo depth": len(self.m2.redo_stack)}
         )
         self.log(f"M2 redo berhasil | panjang={len(self.m2.naif):,}")
-    def show_history(self):
-        lines = [f"{i + 1}. {item}" for i, item in enumerate(self.history)]
-        lines += ["", f"Undo depth: {len(self.undo_stack)}",
-                  f"Redo depth: {len(self.redo_stack)}",
-                  f"Panjang antrean: {len(self.m2.naif)}"]
-        self.show_m2_details(
-            f"History berisi {len(self.history)} aksi.",
-            extra={
-                "undo depth": len(self.undo_stack),
-                "redo depth": len(self.redo_stack),
-                "panjang antrean": len(self.m2.naif),
-                **{f"history {i+1}": item for i, item in enumerate(self.history[-100:])}
-            }
-        )
     def run_sort(self, mode):
         rows = self.array.copy()
         if not rows:
