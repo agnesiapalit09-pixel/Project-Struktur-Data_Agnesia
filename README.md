@@ -45,6 +45,9 @@ Pengelolaan Antrean <img width="1147" height="697" alt="image" src="https://gith
 Laporan dan Sorting <img width="1157" height="697" alt="image" src="https://github.com/user-attachments/assets/f0c7e159-4c93-4375-88eb-80df2f5cbfc3" /> <img width="1146" height="707" alt="image" src="https://github.com/user-attachments/assets/5103bd03-7dd7-4e4b-9fed-853f1450120c" />
 
 
+H. Circular Queue
+Circular queue menggunakan variabel front dan rear untuk menunjukkan posisi elemen dalam antrean. Namun, ketika hanya menggunakan kedua variabel tersebut, kondisi kosong dan penuh dapat sama-sama menghasilkan front == rear. Penggunaan count dipilih karena kondisi kosong dan penuh dapat diketahui secara langsung. Selain itu, seluruh slot array dapat digunakan tanpa perlu menyisakan satu slot kosong.
+
 
 
 
