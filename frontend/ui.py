@@ -548,14 +548,14 @@ class App(tk.Tk):
         return "VIP" if priority == 1 else "PRIORITAS" if priority == 2 else "REGULER"
     def show_rows(self):
         self.set_result(f"Jumlah pesanan: {len(self.array)}\n\n")
-        for row in self.array[:500]:
+        for row in self.array[:100]:
             self.result.insert("end", f"{row[0]} | {row[1]} | {row[2]} | {row[3]} | Rp{row[4]} | {row[8]}\n")
-        if len(self.array) > 500:
-            self.result.insert("end", f"\n... {len(self.array) - 500} data lainnya tidak ditampilkan.")
+        if len(self.array) > 100:
+            self.result.insert("end", f"\n... {len(self.array) - 100} data lainnya tidak ditampilkan.")
     def show_data_preview(self, heading="Data pesanan"):
         """Tampilkan ringkasan dan sebagian data CSV di panel hasil."""
         total = len(self.array)
-        limit = min(total, 500)
+        limit = min(total, 100)
         lines = [
             f"{heading}: {total:,} pesanan.",
             f"Menampilkan {limit:,} data pertama agar UI tetap responsif.",
