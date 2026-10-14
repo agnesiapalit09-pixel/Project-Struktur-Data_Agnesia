@@ -209,7 +209,7 @@ class M2Manager:
         return True
 
 def print_queue(manager):
-    print("\n--- ISI ANTREAN ---")
+    print("\nIsi antrean")
     if not manager.naif.data:
         print("Antrean kosong.")
     else:
@@ -219,7 +219,7 @@ def print_queue(manager):
 
 
 def menu_postfix():
-    print("\n=== STACK: INFIX KE POSTFIX ===")
+    print("\nStack: infix ke postfix")
     expression = input("Masukkan ekspresi (contoh: (3 * 12000) + (2 * 8500) - 5000): ").strip()
     try:
         tokens, postfix, trace1 = infix_to_postfix(expression)
@@ -240,7 +240,7 @@ def menu_postfix():
               f"{row['output']:<30} {row['tindakan']}")
 
 def menu_enqueue(manager):
-    print("\n=== QUEUE: ENQUEUE ===")
+    print("\nQueue: enqueue")
     oid = input("ID pesanan: ").strip()
     pelanggan = input("Nama pelanggan: ").strip()
     resto = input("Nama restoran: ").strip()
@@ -263,7 +263,7 @@ def menu_dequeue(manager, mode):
     if item is None:
         print("\nAntrean kosong, tidak ada pesanan untuk dikeluarkan.")
         return
-    print(f"\n=== QUEUE: DEQUEUE {mode.upper()} ===")
+    print(f"\nQueue: Dequeue {mode.upper()}")
     print(f"Pesanan keluar : {item[0]}")
     print(f"Pelanggan      : {item[1]}")
     print(f"Restoran       : {item[2]}")
@@ -277,7 +277,7 @@ def test_print():
     expression = "(3 * 12000) + (2 * 8500) - 5000"
     tokens, postfix, trace1 = infix_to_postfix(expression)
     total, trace2 = evaluate_postfix(postfix)
-    print("=== TEST OTOMATIS M2 ===")
+    print("Tes M2")
     print("Infix  :", expression)
     print("Token  :", tokens)
     print("Postfix:", postfix)
@@ -290,9 +290,7 @@ def test_print():
 def main():
     manager = M2Manager()
     while True:
-        print("\n" + "=" * 42)
-        print(" MENU M2 STACK & QUEUE")
-        print("=" * 42)
+        print("Menu M2")
         print("1. Stack - Hitung struk (Infix/Postfix)")
         print("2. Queue - Enqueue pesanan")
         print("3. Queue - Dequeue naif")
