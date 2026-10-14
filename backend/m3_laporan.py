@@ -90,7 +90,7 @@ def ukur_sort(data, nama, fungsi, kolom):
     banding = fungsi(salinan, kolom)
     waktu = (time.perf_counter() - mulai) * 1000
 
-    print(f"\n=== {nama} ===")
+    print(f"\n{nama}")
     print("Jumlah data  :", len(salinan))
     print("Perbandingan :", banding)
     print(f"Waktu        : {waktu:.4f} ms")
@@ -103,7 +103,7 @@ def ukur_search(data, target, fungsi, nama):
     indeks, banding = fungsi(data, target)
     waktu = (time.perf_counter() - mulai) * 1000
 
-    print(f"\n=== {nama} ===")
+    print(f"\n {nama}")
     print("Perbandingan:", banding)
     print(f"Waktu       : {waktu:.4f} ms")
 
