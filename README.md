@@ -32,6 +32,7 @@ E. Cara Menjalankan
     Download setiap file ke komputer, cek apakah versi Python sesuai, lalu jalankan dari file ui.py dengan bahasa Python
 
 F. Flowchart Sistem
+
 <img width="196" height="526" alt="image" src="https://github.com/user-attachments/assets/c4ab8e5c-38a6-4519-89ab-6a6582649a8c" />
 
 G. Screenshot 
