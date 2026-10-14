@@ -147,14 +147,13 @@ class M2Manager:
         self.circular = QueueCircular()
         for item in initial:
             self.circular.enqueue(item)
-        self.undo_stack, self.redo_stack, self.history = [], [], []
+        self.undo_stack, self.redo_stack= [], []
 
     def enqueue(self, item):
         self.naif.enqueue(item)
         self.circular.enqueue(item)
         self.undo_stack.append(("enqueue", item))
         self.redo_stack.clear()
-        self.history.append(f"ENQUEUE {item[0]}")
 
     def dequeue(self, mode="naif"):
         start = time.perf_counter()
@@ -170,7 +169,6 @@ class M2Manager:
             shifts = 0
         self.undo_stack.append(("dequeue", item))
         self.redo_stack.clear()
-        self.history.append(f"DEQUEUE {mode.upper()} {item[0]}")
         return item, elapsed, shifts
 
     def _sync_circular(self):
@@ -191,7 +189,6 @@ class M2Manager:
             self.naif.data.insert(0, item)
         self._sync_circular()
         self.redo_stack.append((action, item))
-        self.history.append(f"UNDO {action.upper()} {item[0]}")
         return True
 
     def redo(self):
@@ -205,7 +202,6 @@ class M2Manager:
                 self.naif.data.pop(0)
         self._sync_circular()
         self.undo_stack.append((action, item))
-        self.history.append(f"REDO {action.upper()} {item[0]}")
         return True
 
 def print_queue(manager):
@@ -298,7 +294,6 @@ def main():
         print("5. Stack - Undo")
         print("6. Stack - Redo")
         print("7. Lihat isi antrean")
-        print("8. Lihat history aksi")
         print("0. Keluar")
         pilihan = input("Pilih menu: ").strip()
 
@@ -324,13 +319,6 @@ def main():
                 print("Belum ada aksi yang bisa di-redo.")
         elif pilihan == "7":
             print_queue(manager)
-        elif pilihan == "8":
-            print("\nHISTORY M2")
-            if manager.history:
-                for i, action in enumerate(manager.history, 1):
-                    print(f"{i}. {action}")
-            else:
-                print("Belum ada history.")
         elif pilihan == "0":
             print("Program M2 selesai.")
             break
