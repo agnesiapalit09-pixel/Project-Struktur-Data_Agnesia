@@ -17,6 +17,7 @@ def insertion_sort(data, kolom):
 
         while j >= 0:
             banding += 1
+
             if data[j][kolom] > kunci[kolom]:
                 data[j + 1] = data[j]
                 j -= 1
