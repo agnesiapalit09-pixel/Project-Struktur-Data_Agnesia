@@ -55,6 +55,11 @@ H. Circular Queue
 
 Circular queue menggunakan variabel front dan rear untuk menunjukkan posisi elemen dalam antrean. Namun, ketika hanya menggunakan kedua variabel tersebut, kondisi kosong dan penuh dapat sama-sama menghasilkan front == rear. Penggunaan count dipilih karena kondisi kosong dan penuh dapat diketahui secara langsung. Selain itu, seluruh slot array dapat digunakan tanpa perlu menyisakan satu slot kosong.
 
+I. Perbandingan Insertion vs Merge
+
+<img width="815" height="97" alt="image" src="https://github.com/user-attachments/assets/6f3f0e1a-e98b-44f8-b836-03209db06c26" />
+
+
 
 
 
