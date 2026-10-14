@@ -1,11 +1,11 @@
-import csv
+import csv 
 import os
 import time
 
-class Pesanan:
-    def __init__(self, oid, pelanggan, resto, menu, harga, prioritas, t_masuk, t_selesai="", status="ANTRE"):
-        self.oid = oid
-        self.pelanggan = pelanggan
+class Pesanan: 
+    def __init__(self, oid, pelanggan, resto, menu, harga, prioritas, t_masuk, t_selesai="", status="ANTRE"): #ini tuh constructor, self yuh Mengacu pada objek pesanan yang sedang dibuat
+        self.oid = oid #id pesanan
+        self.pelanggan = pelanggan #menyimpan nama pelanggan 
         self.resto = resto
         self.menu = menu
         self.harga = int(harga)
@@ -276,7 +276,7 @@ def main():
         return
 
     while True:
-        print("\n MENU PESANAN")
+        print("\n Menu pesanan")
         print("1. Lihat pesanan")
         print("2. Tambah REGULER")
         print("3. Tambah PRIORITAS")
