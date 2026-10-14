@@ -325,7 +325,7 @@ def main():
         elif pilihan == "7":
             print_queue(manager)
         elif pilihan == "8":
-            print("\n=== HISTORY M2 ===")
+            print("\nHISTORY M2")
             if manager.history:
                 for i, action in enumerate(manager.history, 1):
                     print(f"{i}. {action}")
